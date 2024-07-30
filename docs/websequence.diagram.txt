@@ -1,0 +1,74 @@
+title fhir-aggregator
+
+actor Researcher
+participant fhir-aggregator
+participant fhir-aggregator-server
+participant server_A
+participant server_B
+participant server_C
+
+opt query-helper
+note left of Researcher: introspect IGs\nquery "library" (named queries)\nquery "variable substitutions"\nlist of servers\ninventory of terms / server
+end
+
+
+
+opt dependencies
+Researcher-->Researcher: compose FHIR queries
+Researcher-->Researcher: obtain credentials
+end
+
+opt register
+note left of fhir-aggregator: TODO: credential plugin
+note left of fhir-aggregator-server: TODO: list of open fhir servers
+fhir-aggregator->fhir-aggregator-server: get config
+Researcher->+fhir-aggregator: register-credentials(server_A, server_B, ...)
+fhir-aggregator->fhir-aggregator:save(config_dir)
+fhir-aggregator-->-Researcher: OK
+end
+
+opt search
+
+Researcher->+fhir-aggregator: search(queries)
+
+loop async:for all queries
+note right of fhir-aggregator: thread for server_A, server_B, server_C
+fhir-aggregator->fhir-aggregator: normalize(query)
+fhir-aggregator->server_A: search(query)
+activate fhir-aggregator
+server_A-->fhir-aggregator: result
+activate fhir-aggregator
+fhir-aggregator->server_A: result(next)
+server_A-->fhir-aggregator: page
+deactivate fhir-aggregator
+deactivate fhir-aggregator
+deactivate fhir-aggregator
+
+end
+
+note right of Researcher: define assumptions for "consolidated"\nno guarantee for order, may be interleaved
+fhir-aggregator-->Researcher: consolidated resources
+
+end
+note left of Researcher: downstream analysis
+
+opt post-process
+
+Researcher->fhir-aggregator: metrics(resources)
+activate fhir-aggregator
+note right of fhir-aggregator: client side validation
+fhir-aggregator->fhir-aggregator: conformance(resources)
+fhir-aggregator-->Researcher: metrics
+deactivate fhir-aggregator
+
+Researcher->fhir-aggregator: normalize(resources)
+activate fhir-aggregator
+fhir-aggregator->fhir-aggregator: normalize-terms(resources)
+note right of fhir-aggregator: "tweaking" chained pipeline e.g. KF->snomed, "cleanups"\n library of transforms,
+fhir-aggregator-->Researcher: resources
+deactivate fhir-aggregator
+end
+
+note left of Researcher: FHIR->dataframe/CSV (dependency on pandas/polars) TODO
+note left of Researcher: downstream analysis
+
