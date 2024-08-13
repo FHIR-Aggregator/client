@@ -1,0 +1,92 @@
+{
+  "resourceType": "ResearchStudy",
+  "id": "1883519",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2024-03-21T04:32:00.421+00:00",
+    "source": "#HBKM811l2YjBvhuX",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/ResearchStudy"
+    ],
+    "tag": [
+      {
+        "system": "https://kf-api-dataservice.kidsfirstdrc.org/studies/",
+        "code": "SD_65064P2Z"
+      }
+    ]
+  },
+  "identifier": [
+    {
+      "use": "official",
+      "system": "https://kf-api-dataservice.kidsfirstdrc.org/studies/",
+      "value": "SD_65064P2Z"
+    },
+    {
+      "use": "secondary",
+      "system": "https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=",
+      "value": "phs002330.v1.p1"
+    }
+  ],
+  "title": "INCLUDE: (Sherman) Genomic Analysis of Congenital Heart Defects and Acute Lymphoblastic Leukemia in Children with Down Syndrome",
+  "status": "completed",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "276720006",
+          "display": "Dysmorphism (disorder)"
+        }
+      ],
+      "text": "BIRTHDEFECT"
+    }
+  ],
+  "relatedArtifact": [
+    {
+      "type": "documentation",
+      "label": "Study Website",
+      "url": "https://includedcc.org/studies/gmkf-ds-x01"
+    }
+  ],
+  "keyword": [
+    {
+      "coding": [
+        {
+          "system": "https://includedcc.org/fhir/code-systems/programs",
+          "code": "INCLUDE-KF",
+          "display": "INCLUDE/KF"
+        }
+      ]
+    },
+    {
+      "coding": [
+        {
+          "system": "https://kf-api-dataservice.kidsfirstdrc.org/studies?program=",
+          "code": "INCLUDE",
+          "display": "INCLUDE"
+        }
+      ],
+      "text": "INCLUDE"
+    },
+    {
+      "coding": [
+        {
+          "system": "https://includedcc.org/fhir/code-systems/study_codes",
+          "code": "DS360-CHD",
+          "display": "DS360-CHD"
+        }
+      ],
+      "text": "DS360-CHD"
+    },
+    {
+      "coding": [
+        {
+          "system": "https://kf-api-dataservice.kidsfirstdrc.org/studies?short_code=",
+          "code": "SD65064P2Z",
+          "display": "SD65064P2Z"
+        }
+      ],
+      "text": "SD65064P2Z"
+    }
+  ]
+}
