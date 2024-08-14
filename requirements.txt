@@ -6,3 +6,4 @@ pydantic
 pyfunctional
 pandas
 upsetplot
+inflection
