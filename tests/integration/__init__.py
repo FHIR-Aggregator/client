@@ -1,5 +1,7 @@
+import sys
+
 from fhir_aggregator.client import FHIRClient
-from fhir_aggregator.client.smart_auth import GoogleFHIRAuth, DBGapFHIRAuth
+from fhir_aggregator.client.smart_auth import GoogleFHIRAuth, DBGapFHIRAuth, FHIRAuthError
 
 # set up servers for testing
 SERVERS = {}
@@ -11,8 +13,11 @@ settings = {
         'https://healthcare.googleapis.com/v1/projects/' + project,
     ]
 }
-
-SERVERS['gtex'] = FHIRClient(settings=settings, auth=GoogleFHIRAuth())
+try:
+    SERVERS['gtex'] = FHIRClient(settings=settings, auth=GoogleFHIRAuth())
+except FHIRAuthError as e:
+    SERVERS['gtex'] = None
+    print("ERROR: GoogleFHIRAuth failed to authenticate", e, file=sys.stderr)
 
 """Connect to open Kids First fhir server, with several datasets"""
 settings = {

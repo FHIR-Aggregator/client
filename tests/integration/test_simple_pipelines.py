@@ -1,7 +1,10 @@
 import itertools
 from collections import Counter
 
+import pytest
 from functional import seq
+
+from tests.integration import SERVERS
 
 
 def identifier(resource):
@@ -26,8 +29,10 @@ def retrieve_and_process(server, queries):
     return items_with_identifiers, items_without_identifiers
 
 
+@pytest.mark.skipif(not SERVERS['gtex'], reason="requires anvil project membership and gcloud installed")
 def test_gtex_pipeline(gtex, queries):
     """Query gtex server process using our chain ."""
+    assert gtex, "gtex server is not available"
     items_with_identifiers, items_without_identifiers = retrieve_and_process(gtex, queries)
 
     assert len(items_with_identifiers) == 1

@@ -25,5 +25,6 @@ The dbGap token is required to run the tests.  It expires every 12 hours.
 * See https://github.com/ncbi/DbGaP-FHIR-API-Docs/blob/production/obtaining_a_token.md#task-specific-token-1 section `Task Specific Token` for instructions on how to obtain the token.
 * Write the token to `tests/fixtures/dbgap-task-specific-token.txt`
 
-
-
+## gtex
+The `test_gtex_pipeline` test requires AnVIL project membership contains data files for the Genotype-Tissue Expression (GTEx) project.
+If gcloud is not installed, the integration test will be automatically skipped.
