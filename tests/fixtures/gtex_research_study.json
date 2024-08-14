@@ -1,0 +1,52 @@
+{
+  "enrollment": [
+    {
+      "reference": "Group/ec345c13-53ba-4dcd-b9f3-9e38826f41fd"
+    }
+  ],
+  "id": "f6c7b779-657e-4c89-9a52-d7a39f3c661d",
+  "identifier": [
+    {
+      "system": "https://anvilproject.org/gtex/fhir/researchstudy",
+      "use": "official",
+      "value": "GTEx"
+    },
+    {
+      "system": "https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=",
+      "value": "phs000424"
+    }
+  ],
+  "keyword": [
+    {
+      "coding": [
+        {
+          "code": "GTEx"
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "lastUpdated": "2022-06-24T19:49:52.680589+00:00",
+    "profile": [
+      "https://ncpi-fhir.github.io/ncpi-fhir-study-summary-ig/StructureDefinition/ncpi-research-study"
+    ],
+    "tag": [
+      {
+        "code": "GTEx",
+        "system": "https://anvilproject.org/gtex/fhir/researchstudy"
+      }
+    ],
+    "versionId": "MTY1NjEwMDE5MjY4MDU4OTAwMA"
+  },
+  "relatedArtifact": [
+    {
+      "type": "documentation",
+      "url": "https://gtexportal.org"
+    }
+  ],
+  "resourceType": "ResearchStudy",
+  "sponsor": {
+    "reference": "Organization/7f2816f7-9385-4e85-b944-2142e410ca7a"
+  },
+  "status": "completed"
+}

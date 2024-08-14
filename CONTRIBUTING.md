@@ -44,10 +44,23 @@ To distribute a new version of FHIR Aggregator to PyPI, follow these steps:
 2. **Update the version number** in `setup.py` according to semantic versioning.
 3. **Build the package**. Run the following command from the root of the project:
 
+
 ```commandline
-python setup.py sdist bdist_wheel
+# update pypi
+
+# pypi credentials - see https://twine.readthedocs.io/en/stable/#environment-variables
+
+export TWINE_USERNAME=  #  the username to use for authentication to the repository.
+export TWINE_PASSWORD=  # the password to use for authentication to the repository.
+
+# this could be maintained as so: export $(cat .env | xargs)
+
+rm -r build/
+rm -r dist/
+python3  setup.py sdist bdist_wheel
 twine upload dist/*
 ```
+
 This command generates distribution archives in the `dist` directory.
 4. **Upload the package to PyPI** using [twine](https://pypi.org/project/twine/):
 Note: You must have permissions to upload to the project on PyPI and may need to authenticate with your PyPI account.

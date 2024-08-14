@@ -1,0 +1,321 @@
+{
+  "resourceType": "CapabilityStatement",
+  "id": "4d34b44d-7d3d-47c8-aa27-ad18733f753a",
+  "name": "RestServer",
+  "status": "active",
+  "date": "2024-08-12T20:56:08.391-04:00",
+  "publisher": "Not provided",
+  "kind": "instance",
+  "software": {
+    "name": "HAPI FHIR Server",
+    "version": "5.7.2"
+  },
+  "implementation": {
+    "description": "HAPI FHIR",
+    "url": "http://dbgap-fhir-persistent.linkerd.ncbi.nlm.nih.gov/fhir/x1"
+  },
+  "fhirVersion": "4.0.1",
+  "format": [
+    "application/fhir+xml",
+    "xml",
+    "application/fhir+json",
+    "json",
+    "html/json",
+    "html/xml"
+  ],
+  "rest": [
+    {
+      "mode": "server",
+      "resource": [
+        {
+          "type": "Observation",
+          "profile": "http://hl7.org/fhir/StructureDefinition/Observation",
+          "interaction": [
+            {
+              "code": "search-type"
+            },
+            {
+              "code": "read"
+            }
+          ],
+          "searchInclude": [
+            "*",
+            "Observation:derived-from",
+            "Observation:patient",
+            "Observation:subject"
+          ],
+          "searchRevInclude": [
+            "Observation:derived-from",
+            "Observation:patient",
+            "Observation:subject"
+          ],
+          "searchParam": [
+            {
+              "name": "_id",
+              "type": "token",
+              "documentation": "Logical id of this artifact"
+            },
+            {
+              "name": "_lastUpdated",
+              "type": "date",
+              "documentation": "(Unimplemented) When the resource version last changed"
+            },
+            {
+              "name": "_query",
+              "type": "string",
+              "documentation": "(Unimplemented) A custom search profile that describes a specific defined query operation"
+            },
+            {
+              "name": "_security",
+              "type": "token",
+              "documentation": "Security Labels applied to this resource"
+            },
+            {
+              "name": "_tag",
+              "type": "token",
+              "documentation": "(Unimplemented) Tags applied to this resource"
+            },
+            {
+              "name": "batchId_internal",
+              "type": "string",
+              "documentation": "The batch Request Id. For internal use only"
+            },
+            {
+              "name": "code",
+              "type": "token",
+              "documentation": "The code of the observation type"
+            },
+            {
+              "name": "code-value-concept",
+              "type": "composite",
+              "documentation": "(Unimplemented) Code and coded value parameter pair"
+            },
+            {
+              "name": "code-value-date",
+              "type": "composite",
+              "documentation": "(Unimplemented) Code and date/time value parameter pair"
+            },
+            {
+              "name": "code-value-quantity",
+              "type": "composite",
+              "documentation": "(Unimplemented) Code and quantity value parameter pair"
+            },
+            {
+              "name": "combo-code",
+              "type": "token",
+              "documentation": "The code of the observation type or component type"
+            },
+            {
+              "name": "combo-code-value-concept",
+              "type": "composite",
+              "documentation": "(Unimplemented) Code and coded value parameter pair, including in components"
+            },
+            {
+              "name": "combo-code-value-quantity",
+              "type": "composite",
+              "documentation": "(Unimplemented) Code and quantity value parameter pair, including in components"
+            },
+            {
+              "name": "combo-data-absent-reason",
+              "type": "token",
+              "documentation": "(Unimplemented) The reason why the expected value in the element Observation.value[x] or Observation.component.value[x] is missing."
+            },
+            {
+              "name": "combo-value-concept",
+              "type": "token",
+              "documentation": "The value or component value of the observation, if the value is a CodeableConcept"
+            },
+            {
+              "name": "combo-value-quantity",
+              "type": "quantity",
+              "documentation": "The value or component value of the observation, if the value is a Quantity, or a SampledData (just search on the bounds of the values in sampled data)"
+            },
+            {
+              "name": "data-absent-reason",
+              "type": "token",
+              "documentation": "(Unimplemented) The reason why the expected value in the element Observation.value[x] is missing."
+            },
+            {
+              "name": "date",
+              "type": "date",
+              "documentation": "(Unimplemented) Obtained date/time. If the obtained element is a period, a date that falls in the period"
+            },
+            {
+              "name": "derived-from",
+              "type": "reference",
+              "documentation": "(Unimplemented) Related measurements the observation is made from"
+            },
+            {
+              "name": "internal_delay_40_secs",
+              "type": "string",
+              "documentation": "Whether there is an internal delay or not"
+            },
+            {
+              "name": "patient",
+              "type": "reference",
+              "documentation": "The subject that the observation is about (if patient)"
+            },
+            {
+              "name": "status",
+              "type": "token",
+              "documentation": "(Unimplemented) The status of the observation"
+            },
+            {
+              "name": "subject",
+              "type": "reference",
+              "documentation": "The subject that the observation is about"
+            },
+            {
+              "name": "useCache",
+              "type": "string",
+              "documentation": "Whether to use the cache or not"
+            },
+            {
+              "name": "value-concept",
+              "type": "token",
+              "documentation": "The value of the observation, if the value is a CodeableConcept"
+            },
+            {
+              "name": "value-date",
+              "type": "date",
+              "documentation": "(Unimplemented) The value of the observation, if the value is a date or period of time"
+            },
+            {
+              "name": "value-quantity",
+              "type": "quantity",
+              "documentation": "The value of the observation, if the value is a Quantity, or a SampledData (just search on the bounds of the values in sampled data)"
+            }
+          ]
+        },
+        {
+          "type": "OperationDefinition",
+          "profile": "http://hl7.org/fhir/StructureDefinition/OperationDefinition",
+          "interaction": [
+            {
+              "code": "read"
+            }
+          ],
+          "searchInclude": [
+            "*"
+          ],
+          "searchRevInclude": [
+            "Observation:derived-from",
+            "Observation:patient",
+            "Observation:subject"
+          ]
+        },
+        {
+          "type": "Patient",
+          "profile": "http://hl7.org/fhir/StructureDefinition/Patient",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchInclude": [
+            "*"
+          ],
+          "searchRevInclude": [
+            "Observation:derived-from",
+            "Observation:patient",
+            "Observation:subject"
+          ],
+          "searchParam": [
+            {
+              "name": "_has",
+              "type": "string",
+              "documentation": "Provides limited support for reverse chaining\nThis search parameter supports the following modifiers:\nResearchSubject:individual:study\nObservation:subject:code\nObservation:subject:combo-code\n"
+            },
+            {
+              "name": "_id",
+              "type": "token",
+              "documentation": "Logical id of this artifact"
+            },
+            {
+              "name": "_lastUpdated",
+              "type": "date",
+              "documentation": "(Unimplemented) When the resource version last changed"
+            },
+            {
+              "name": "_query",
+              "type": "string",
+              "documentation": "(Unimplemented) A custom search profile that describes a specific defined query operation"
+            },
+            {
+              "name": "_security",
+              "type": "token",
+              "documentation": "(Unimplemented) Security Labels applied to this resource"
+            },
+            {
+              "name": "_tag",
+              "type": "token",
+              "documentation": "(Unimplemented) Tags applied to this resource"
+            },
+            {
+              "name": "active",
+              "type": "token",
+              "documentation": "(Unimplemented) Whether the patient record is active"
+            },
+            {
+              "name": "batchId_internal",
+              "type": "string",
+              "documentation": "The batch Request Id. For internal use only"
+            },
+            {
+              "name": "gender",
+              "type": "token",
+              "documentation": "(Unimplemented) Gender of the patient"
+            },
+            {
+              "name": "identifier",
+              "type": "token",
+              "documentation": "(Unimplemented) A patient identifier"
+            },
+            {
+              "name": "useCache",
+              "type": "string",
+              "documentation": "Whether to use the cache or not"
+            }
+          ]
+        },
+        {
+          "type": "ResearchStudy",
+          "profile": "http://hl7.org/fhir/StructureDefinition/ResearchStudy",
+          "interaction": [
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchInclude": [
+            "*"
+          ],
+          "searchRevInclude": [
+            "Observation:derived-from",
+            "Observation:patient",
+            "Observation:subject"
+          ],
+          "searchParam": [
+            {
+              "name": "_has",
+              "type": "string",
+              "documentation": "Provides limited support for reverse chaining\nThis search parameter supports the following modifiers:\nResearchSubject:study:status\n"
+            },
+            {
+              "name": "batchId_internal",
+              "type": "string",
+              "documentation": "The batch Request Id. For internal use only"
+            }
+          ]
+        }
+      ],
+      "interaction": [
+        {
+          "code": "transaction"
+        }
+      ]
+    }
+  ]
+}
