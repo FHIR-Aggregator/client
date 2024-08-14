@@ -23,7 +23,7 @@ The `fetch_fixtures.py` script is used to retrieve and store fixture data. This 
 ## dbGap Token
 The dbGap token is required to run the tests.  It expires every 12 hours.
 * See https://github.com/ncbi/DbGaP-FHIR-API-Docs/blob/production/obtaining_a_token.md#task-specific-token-1 section `Task Specific Token` for instructions on how to obtain the token.
-* Write the token to `tests/fixtures/dbgap-task-specific-token.json`
+* Write the token to `tests/fixtures/dbgap-task-specific-token.txt`
 
 
 
