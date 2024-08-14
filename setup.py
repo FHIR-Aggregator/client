@@ -11,7 +11,7 @@ with open('README.md', encoding='utf-8') as f:
 # Step 3: Define the setup
 setup(
     name='fhir-aggregator',
-    version='0.1',
+    version='0.2rc1',
     packages=find_packages(),
     install_requires=required,
     long_description=long_description,
